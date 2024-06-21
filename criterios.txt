@@ -1,0 +1,63 @@
+Edad: 	numero aleatorio en el rango 20-60
+Nivel de estudios:
+	Edad <= 23: 1% posgrado,  79% licenciatura, 20% ninguno
+	Edad <= 40: 5% posgrado, 65% licenciatura, 30% ninguno
+	Edad > 40: 2% posgrado, 28% licenciatura, 70% ninguno
+Nivel de renta:
+	Edad <= 40: 
+		Licenciatura o posgrado: 30% bajo, 60% medio, 10% alto	
+		Sin estudios: 40% bajo, 50% medio, 5% alto
+	Edad > 40:
+		Licenciatura o posgrado: 10% bajo, 65% medio, 25% alto		
+		Sin estudios: 78% bajo, 20% medio, 2% alto
+Patrimonio:
+	Edad <= 35: 
+		Nivel de renta alto o medio: 30% bajo, 35% medio, 35% alto
+		Nivel de renta bajo: 75% bajo, 23% medio, 2% alto
+	Edad > 35: 
+		Nivel de renta alto o medio: 20% bajo, 50% medio, 30% alto
+		Nivel de renta bajo: 90% bajo, 9% medio, 1% alto
+Número de hijos:
+	Nivel de renta bajo: 1-6 hijos con misma probabilidad
+	Nivel de renta medio o alto: 0-3 hijos con misma probabilidad
+Tamaño del crédito:
+	Nivel de renta bajo: entero en el rango 500-20,000
+	Nivel de renta medio o alto: entero en el rango 500-100,000
+Funcionario:
+	Nivel de renta bajo:
+		Patrimonio bajo: 80% no y 20% si
+		Patrimonio medio o alto:
+			Edad <= 25: 25% no y 75% si
+			Edad > 25: 40% no y 60% si 	
+	Nivel de renta medio o alto: 10% no y 90% si
+Autorizó:
+	Credito <= 30,000:
+		No es funcionario:
+			Edad >= 55: 95% no y 5% si
+			Patrimonio bajo o medio: 80% no y 20% si
+			Patrimonio alto: 50% no y 50% si
+		Sin estudios:
+			Nivel de renta bajo: 65% no y 35% si
+			Nivel de renta medio o alto: 30% no y 70% si
+		Licenciatura o posgrado:
+			Nivel de renta bajo: 60% no y 40% si
+			Nivel de renta medio o alto: 15% no y 85% si
+	Credito <= 60,000:
+		No es funcionario:
+			Edad >= 50: 95% no y 5% si				
+ 			Nivel de renta alto: 25% no y 75% si
+			Patrimonio alto: 20% no y 80% si			
+			Si no: 70% no y 30% si
+		Nivel de renta medio o alto: 10% no y 90% si
+		Licenciatura o posgrado: 40% no y 60% si
+		Si no: 80% no y 20% si
+	Credito <= 100,000:
+		No es funcionario:
+			Edad >= 40: 95% no y 5% si				
+ 			Nivel de renta alto: 35% no y 65% si
+			Patrimonio alto: 30% no y 60% si			
+			Si no: 80% no y 20% si
+		Nivel de renta alto: 10% no y 90% si
+		Nivel de renta medio: 25% no y 75% si 
+		Licenciatura o posgrado: 60% no y 40% si
+		Si no: 90% no y 10% si

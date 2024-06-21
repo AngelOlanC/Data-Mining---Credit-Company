@@ -1,0 +1,95 @@
+{
+	"flow_name" : "FlujoFuenteBD",
+	"steps" : [
+		{
+			"class" : "weka.knowledgeflow.steps.ClassAssigner",
+			"properties" : {
+				"classColumn" : "autorizado",
+				"name" : "ClassAssigner"
+			},
+			"connections" : {
+				"dataSet" : [
+					"CrossValidationFoldMaker"
+				]
+			},
+			"coordinates" : "204,173"
+		},
+		{
+			"class" : "weka.knowledgeflow.steps.CrossValidationFoldMaker",
+			"properties" : {
+				"name" : "CrossValidationFoldMaker",
+				"numFolds" : "5",
+				"preserveOrder" : false,
+				"seed" : "1"
+			},
+			"connections" : {
+				"trainingSet" : [
+					"J48"
+				],
+				"testSet" : [
+					"J48"
+				]
+			},
+			"coordinates" : "330,173"
+		},
+		{
+			"class" : "weka.knowledgeflow.steps.Classifier",
+			"properties" : {
+				"classifier" : {
+					"type" : "optionHandler",
+					"class" : "weka.classifiers.trees.J48",
+					"options" : "-C 0.25 -M 2"
+				},
+				"loadClassifierFileName" : "",
+				"name" : "J48",
+				"resetIncrementalClassifier" : false,
+				"updateIncrementalClassifier" : true
+			},
+			"connections" : {
+				"text" : [
+					"TextViewer"
+				],
+				"graph" : [
+					"GraphViewer"
+				]
+			},
+			"coordinates" : "482,175"
+		},
+		{
+			"class" : "weka.knowledgeflow.steps.TextViewer",
+			"properties" : {
+				"name" : "TextViewer"
+			},
+			"connections" : {
+			},
+			"coordinates" : "684,113"
+		},
+		{
+			"class" : "weka.knowledgeflow.steps.GraphViewer",
+			"properties" : {
+				"name" : "GraphViewer"
+			},
+			"connections" : {
+			},
+			"coordinates" : "677,221"
+		},
+		{
+			"class" : "weka.knowledgeflow.steps.Loader",
+			"properties" : {
+				"loader" : {
+					"type" : "loader",
+					"class" : "weka.core.converters.DatabaseLoader",
+					"filePath" : "",
+					"options" : "-url jdbc:sqlserver://localhost:1433;databasename=Mineros -user sa -password Aa252328 -Q \"SELECT * FROM Solicitantes\" -custom-props ${user.home}"
+				},
+				"name" : "DatabaseLoader"
+			},
+			"connections" : {
+				"dataSet" : [
+					"ClassAssigner"
+				]
+			},
+			"coordinates" : "75,172"
+		}
+	]
+}
